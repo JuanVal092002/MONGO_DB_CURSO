@@ -1,0 +1,72 @@
+    
+        // TRABAJO RECUPERACION MONGODB
+        
+
+        use ("“db_peliculas_alquiler”") // Aqui empezamos a usar la base de Datos peliculas_alquiler.
+
+        // Aqui insertamos el comando db.NombreDeColeccion que queremos consultar. ({clave : Valor})
+
+        // Consulta de todos los documentos. 
+            // db.MOVIES.find({})
+
+        // Obtener documentos con writer igual a "Quentin Tarantino"
+            // db.MOVIES.find({ writer: "Quentin Tarantino" })
+
+        // Obtener documentos con actors que incluyan a "Brad Pitt"
+            // db.MOVIES.find({ actors: "Brad Pitt" })
+        
+        //  Obtener documentos con franchise igual a "The Hobbit"
+            // db.MOVIES.find({ franchise: "The Hobbit" })
+
+        //  Obtener todas las películas de los 90s.
+            //  db.MOVIES.find({ year: { $gte: 1990, $lt: 2000 } })
+
+        // Obtener las películas estrenadas entre el año 2000 y 2010. 
+                //  db.MOVIES.find({ year: { $gte: 2000, $lte: 2010 } })
+        
+        // Encontrar las películas que en la sinopsis contengan la palabra "Bilbo"
+                // db.MOVIES.find({ sinopsis: { $regex: /Bilbo/i } })
+        
+        //  Encontrar las películas que en la sinopsis contengan la palabra "Bilbo" y no la palabra "Gandalf":
+                // db.MOVIES.find({ sinopsis: { $regex: /Bilbo/i, $not: /Gandalf/i } })
+
+        // Encontrar las películas que en la sinopsis contengan la palabra "dwarves" o "hobbit"
+                // db.MOVIES.find({ sinopsis: { $regex: /dwarves|hobbit/i } })
+
+         // Encontrar las películas que en la sinopsis contengan la palabra "gold" y "dragon":
+                // db.MOVIES.find({ sinopsis: { $regex: /gold/i, $regex: /dragon/i } })
+
+
+        //------------ ACTUALIZACIONES ----------------- 
+
+        // // Agregar sinopsis a "The Hobbit: An Unexpected Journey"
+                // db.MOVIES.updateOne(
+                //     { title: "The Hobbit: An Unexpected Journey" },
+                //     { $set: { sinopsis: "A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug." } }
+                //   )
+
+        // // Agregar sinopsis a "The Hobbit: The Desolation of Smaug"
+                // db.MOVIES.updateOne(
+                //     { title: "The Hobbit: The Desolation of Smaug" },
+                //     { $set: { sinopsis: "The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim Erebor, their homeland, from Smaug. Bilbo Baggins is in possession of a mysterious and magical ring." } }
+                //   )
+
+        // Agregar un actor llamado "Samuel L. Jackson" a la película "Pulp Fiction":
+                // db.MOVIES.updateOne(
+                //     { title: "Pulp Fiction" },
+                //     { $push: { actors: "Samuel L. Jackson" } }
+                //   )
+
+        //------------ELIMINACIONES-------------------------
+
+        // Eliminar la película "Pee Wee Herman's Big Adventure"
+                // db.MOVIES.deleteOne({ title: "Pee Wee Herman's Big Adventure" })
+
+        // Eliminar la película "Avatar":
+                // db.MOVIES.deleteOne({ title: "Avatar" })
+
+
+
+    
+    
+    
